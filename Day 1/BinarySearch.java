@@ -1,19 +1,26 @@
 class BinarySearch{
     public static void main(String args[]){
-        int arr[] = {12,32,33,43,2,4,1,65,790,43,5,6,3,0};
-        int num = 100;
+        int arr[] = {1,2,34,54,67,77,88,102,213};
+        int num=100;
+        int i = 0;
+        int j=arr.length - 1;
         boolean isFound=false;
 
-        for(int i=0; i < arr.length ; i++){
-            if(arr[i] == num){
-                System.out.println("Number found at index "+i);
-                isFound = true;
+        while(j>=i){
+            int mid = (i+j)/2;
+            if(arr[mid] == num){
+                System.out.println("Item found a index " + mid);
+                isFound=true;
                 break;
+            }else if(arr[mid] >  num){
+                j = mid - 1;
+            }else{
+                i = mid + 1;
             }
         }
 
         if(isFound == false){
-            System.out.println("Number not found ");
+            System.out.println("Item not found");
         }
 
     }
